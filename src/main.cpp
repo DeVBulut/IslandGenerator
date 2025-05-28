@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
 #include <imgui.h>
-#include <backends/imgui_impl_opengl3.h>
+#include <backends/imgui_impl_opengl3.hpp>
 #include "NoiseGenerator.hpp"
 #include "IslandGenerator.hpp"
 #include <windows.h>

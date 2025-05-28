@@ -11,23 +11,19 @@ void NoiseGenerator::setSeed(int newSeed) {
 }
 
 void NoiseGenerator::initPermutationTable() {
-    // Initialize permutation table with values 0-255
     p.resize(512);
     std::mt19937 gen(seed);
     
-    // Fill first 256 values
     for (int i = 0; i < 256; i++) {
         p[i] = i;
     }
     
-    // Shuffle the values
     for (int i = 255; i > 0; i--) {
         std::uniform_int_distribution<> dis(0, i);
         int j = dis(gen);
         std::swap(p[i], p[j]);
     }
     
-    // Duplicate the permutation table
     for (int i = 0; i < 256; i++) {
         p[256 + i] = p[i];
     }

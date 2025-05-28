@@ -8,15 +8,12 @@ void IslandGenerator::generate(const NoiseGenerator& noiseGen, float scale, int 
     sf::Image image;
     image.create(width, height);
     
-    // Generate gradient for island shape (higher in center, lower at edges)
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
-            // Get base noise value
             float nx = static_cast<float>(x) / width * scale;
             float ny = static_cast<float>(y) / height * scale;
             float noiseValue = noiseGen.fbm(nx, ny, octaves, persistence);
             
-            // Apply radial gradient to create island shape
             float centerX = width * 0.5f;
             float centerY = height * 0.5f;
             float dx = x - centerX;
@@ -24,10 +21,8 @@ void IslandGenerator::generate(const NoiseGenerator& noiseGen, float scale, int 
             float distanceFromCenter = std::sqrt(dx * dx + dy * dy) / (width * 0.5f);
             float gradient = 1.0f - std::pow(distanceFromCenter, 2.0f);
             
-            // Combine noise with gradient
             float finalHeight = (noiseValue + 1.0f) * 0.5f * gradient;
             
-            // Determine terrain type and color
             TerrainType terrain = getTerrainType(finalHeight);
             sf::Color color = getTerrainColor(terrain);
             

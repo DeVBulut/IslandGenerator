@@ -22,7 +22,6 @@ void TextureManager::generateNoiseTexture(const NoiseGenerator& noiseGen, float 
 }
 
 sf::Color TextureManager::noiseToColor(float value) const {
-    // Convert noise value [-1, 1] to [0, 255]
     unsigned char intensity = static_cast<unsigned char>((value * 0.5f + 0.5f) * 255);
     return sf::Color(intensity, intensity, intensity, 255);
 }
