@@ -1,0 +1,10 @@
+^C:\CODING PROJECTS\PROCEDURAL ISLAND GENERATOR\BUILD\CMAKEFILES\9F835AEDA43EB7D6282146503F8D2393\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Coding Projects/Procedural Island Generator" "-BC:/Coding Projects/Procedural Island Generator/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Coding Projects/Procedural Island Generator/build/ProceduralIslandGenerator.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

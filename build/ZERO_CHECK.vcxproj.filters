@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Coding Projects\Procedural Island Generator\build\CMakeFiles\9f835aeda43eb7d6282146503f8d2393\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D4929ABC-561A-3B38-97D2-18D3316C9D38}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
