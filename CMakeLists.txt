@@ -40,12 +40,14 @@ set(SOURCES
     src/main.cpp
     src/NoiseGenerator.cpp
     src/IslandGenerator.cpp
+    src/TextureManager.cpp
 )
 
 # Add header files
 set(HEADERS
     include/NoiseGenerator.hpp
     include/IslandGenerator.hpp
+    include/TextureManager.hpp
 )
 
 # Create executable
@@ -53,7 +55,7 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
 # Include directories
 target_include_directories(${PROJECT_NAME} PRIVATE
-    ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${IMGUI_DIR}
     ${IMGUI_DIR}/backends
     ${OPENGL_INCLUDE_DIR}

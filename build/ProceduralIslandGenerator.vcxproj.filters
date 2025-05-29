@@ -1,33 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Coding Projects\Procedural Island Generator\src\main.cpp">
+    <ClCompile Include="C:\Coding Projects\Procedural Island Generator\IslandGenerator\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Coding Projects\Procedural Island Generator\src\NoiseGenerator.cpp">
+    <ClCompile Include="C:\Coding Projects\Procedural Island Generator\IslandGenerator\src\NoiseGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Coding Projects\Procedural Island Generator\src\IslandGenerator.cpp">
+    <ClCompile Include="C:\Coding Projects\Procedural Island Generator\IslandGenerator\src\IslandGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Coding Projects\Procedural Island Generator\IslandGenerator\src\TextureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Coding Projects\Procedural Island Generator\include\NoiseGenerator.hpp">
+    <ClInclude Include="C:\Coding Projects\Procedural Island Generator\IslandGenerator\include\NoiseGenerator.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Coding Projects\Procedural Island Generator\include\IslandGenerator.hpp">
+    <ClInclude Include="C:\Coding Projects\Procedural Island Generator\IslandGenerator\include\IslandGenerator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Coding Projects\Procedural Island Generator\IslandGenerator\include\TextureManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Coding Projects\Procedural Island Generator\CMakeLists.txt" />
+    <CustomBuild Include="C:\Coding Projects\Procedural Island Generator\IslandGenerator\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{7A772AEB-EF49-3771-B875-C9200833DEC3}</UniqueIdentifier>
+      <UniqueIdentifier>{F4F3B912-4459-314E-96C1-C88C3128A45E}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{9609265D-7F2D-396D-A079-FD37E65CA876}</UniqueIdentifier>
+      <UniqueIdentifier>{07554CDF-8FE3-3644-A6AF-24F647F56BA0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

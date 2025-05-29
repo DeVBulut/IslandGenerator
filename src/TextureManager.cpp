@@ -1,4 +1,7 @@
 #include "TextureManager.hpp"
+#include "NoiseGenerator.hpp"
+#include <SFML/Graphics.hpp>
+#include <string>
 
 TextureManager::TextureManager(int width, int height) : width(width), height(height) {
     renderTexture.create(width, height);

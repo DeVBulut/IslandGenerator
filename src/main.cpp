@@ -8,6 +8,7 @@
 #include <shobjidl.h> 
 #include <filesystem>
 #include <shlobj.h>
+#include <random>
 
 // Global texture for ImGui font
 sf::Texture* g_fontTexture = nullptr;
@@ -223,10 +224,10 @@ int main() {
     int seed = 1;
     
     // Terrain parameters
-    float seaLevel = 0.4f;
-    float beachSize = 0.05f;
-    float mountainLevel = 0.7f;
-    float snowLevel = 0.85f;
+    float seaLevel = 0.500f;
+    float beachSize = 0.030f;
+    float mountainLevel = 0.610f;
+    float snowLevel = 0.700f;
     
     // Export parameters
     static std::string selectedExportPath;
@@ -264,10 +265,8 @@ int main() {
                 // Recalculate UI scale
                 uiScale = CalculateUIScale(window);
                 
-                // Reload fonts with new scale
-                io.Fonts->Clear();
-                io.Fonts->AddFontFromFileTTF("C:\\Windows\\Fonts\\segoeui.ttf", baseFontSize * uiScale);
-                ImGui_SFML_Init(window); // Reinitialize with new font
+                // Update ImGui display size
+                io.DisplaySize = ImVec2(window.getSize().x, window.getSize().y);
                 
                 // Update style scaling
                 style.ScaleAllSizes(uiScale);
@@ -299,9 +298,51 @@ int main() {
             if (ImGui::SliderFloat("Scale", &scale, 1.0f, 10.0f)) regenerate = true;
             if (ImGui::SliderInt("Octaves", &octaves, 1, 8)) regenerate = true;
             if (ImGui::SliderFloat("Persistence", &persistence, 0.1f, 1.0f)) regenerate = true;
-            if (ImGui::InputInt("Seed", &seed)) {
+            
+            // Seed input and random button on same line
+            ImGui::PushItemWidth(ImGui::GetWindowWidth() * 0.6f);
+            if (ImGui::InputInt("Seed", &seed, 0, 0)) { // Setting step and step_fast to 0 removes +/- buttons
                 noiseGen.setSeed(seed);
                 regenerate = true;
+            }
+            ImGui::PopItemWidth();
+            
+            ImGui::SameLine();
+            ImGui::PushFont(io.Fonts->Fonts[0]); // Use default font for icon
+            if (ImGui::Button(u8"↻")) { // Unicode reload symbol
+                std::random_device rd;
+                std::mt19937 gen(rd());
+                std::uniform_int_distribution<> dis(1, 1000000);
+                seed = dis(gen);
+                noiseGen.setSeed(seed);
+                regenerate = true;
+            }
+            ImGui::PopFont();
+            if (ImGui::IsItemHovered()) {
+                ImGui::SetTooltip("Generate a random seed");
+            }
+
+            ImGui::Separator();
+            
+            // Reset button to restore default values
+            if (ImGui::Button("Reset to Default")) {
+                // Reset noise parameters
+                scale = 4.0f;
+                octaves = 6;
+                persistence = 0.5f;
+                seed = 1;
+                noiseGen.setSeed(seed);
+                
+                // Reset terrain parameters
+                seaLevel = 0.50f;      // Rounded from 0.504
+                beachSize = 0.03f;     // Rounded from 0.029
+                mountainLevel = 0.61f;  // Rounded from 0.610
+                snowLevel = 0.70f;     // From 0.700
+                
+                regenerate = true;
+            }
+            if (ImGui::IsItemHovered()) {
+                ImGui::SetTooltip("Restore all parameters to their default values");
             }
         }
         

@@ -15,36 +15,34 @@ public:
         Snow
     };
 
-    IslandGenerator(int width, int height);
+    IslandGenerator(unsigned int width, unsigned int height);
     
-    // Generate island using current parameters
+    // Generate island using given noise parameters
     void generate(const NoiseGenerator& noiseGen, float scale, int octaves, float persistence);
     
     // Get the generated texture
-    const sf::Texture& getTexture() const { return texture; }
+    const sf::Texture& getTexture() const;
     
-    // Export current texture to PNG
-    bool exportToPNG(const std::string& filename) const;
+    // Export the generated island to a PNG file
+    void exportToPNG(const std::string& filename) const;
     
-    // Set parameters
-    void setSeaLevel(float level) { seaLevel = level; }
-    void setBeachSize(float size) { beachSize = size; }
-    void setMountainLevel(float level) { mountainLevel = level; }
-    void setSnowLevel(float level) { snowLevel = level; }
-
+    // Set terrain parameters
+    void setSeaLevel(float level);
+    void setBeachSize(float size);
+    void setMountainLevel(float level);
+    void setSnowLevel(float level);
+    
 private:
-    int width;
-    int height;
-    sf::Texture texture;
+    unsigned int width;
+    unsigned int height;
+    sf::RenderTexture renderTexture;
     
     // Terrain parameters
-    float seaLevel = 0.4f;
-    float beachSize = 0.05f;
-    float mountainLevel = 0.7f;
-    float snowLevel = 0.85f;
+    float seaLevel;
+    float beachSize;
+    float mountainLevel;
+    float snowLevel;
     
-    // Helper functions
-    TerrainType getTerrainType(float height) const;
-    sf::Color getTerrainColor(TerrainType terrain) const;
-    float getGradientNoise(float x, float y, const NoiseGenerator& noiseGen) const;
+    // Helper function to get terrain color based on height
+    sf::Color getTerrainColor(float height) const;
 }; 

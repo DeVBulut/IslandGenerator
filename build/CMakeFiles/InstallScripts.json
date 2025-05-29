@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"C:/Coding Projects/Procedural Island Generator/build/cmake_install.cmake"
+		"C:/Coding Projects/Procedural Island Generator/IslandGenerator/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

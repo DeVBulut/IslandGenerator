@@ -1,39 +1,66 @@
 #include "NoiseGenerator.hpp"
 #include <cmath>
 
-NoiseGenerator::NoiseGenerator(int seed) : seed(seed) {
-    initPermutationTable();
+NoiseGenerator::NoiseGenerator() : seed(1) {}
+
+float NoiseGenerator::noise(float x, float y) const {
+    // Get integer coordinates
+    int X = static_cast<int>(std::floor(x)) & 255;
+    int Y = static_cast<int>(std::floor(y)) & 255;
+    
+    // Get decimal part
+    x -= std::floor(x);
+    y -= std::floor(y);
+    
+    // Compute fade curves
+    float u = fade(x);
+    float v = fade(y);
+    
+    // Hash coordinates of cube corners
+    int A = hash(X, Y);
+    int B = hash(X + 1, Y);
+    int C = hash(X, Y + 1);
+    int D = hash(X + 1, Y + 1);
+    
+    // Interpolate results
+    float result = lerp(
+        lerp(grad(A, x, y), grad(B, x - 1, y), u),
+        lerp(grad(C, x, y - 1), grad(D, x - 1, y - 1), u),
+        v
+    );
+    
+    return result;
+}
+
+float NoiseGenerator::fbm(float x, float y, int octaves, float persistence) const {
+    float total = 0.0f;
+    float frequency = 1.0f;
+    float amplitude = 1.0f;
+    float maxValue = 0.0f;
+    
+    for (int i = 0; i < octaves; ++i) {
+        total += noise(x * frequency, y * frequency) * amplitude;
+        maxValue += amplitude;
+        amplitude *= persistence;
+        frequency *= 2.0f;
+    }
+    
+    return total / maxValue;
 }
 
 void NoiseGenerator::setSeed(int newSeed) {
     seed = newSeed;
-    initPermutationTable();
 }
 
-void NoiseGenerator::initPermutationTable() {
-    p.resize(512);
-    std::mt19937 gen(seed);
-    
-    for (int i = 0; i < 256; i++) {
-        p[i] = i;
-    }
-    
-    for (int i = 255; i > 0; i--) {
-        std::uniform_int_distribution<> dis(0, i);
-        int j = dis(gen);
-        std::swap(p[i], p[j]);
-    }
-    
-    for (int i = 0; i < 256; i++) {
-        p[256 + i] = p[i];
-    }
+int NoiseGenerator::getSeed() const {
+    return seed;
 }
 
 float NoiseGenerator::fade(float t) const {
     return t * t * t * (t * (t * 6 - 15) + 10);
 }
 
-float NoiseGenerator::lerp(float t, float a, float b) const {
+float NoiseGenerator::lerp(float a, float b, float t) const {
     return a + t * (b - a);
 }
 
@@ -44,40 +71,8 @@ float NoiseGenerator::grad(int hash, float x, float y) const {
     return ((h & 1) == 0 ? u : -u) + ((h & 2) == 0 ? v : -v);
 }
 
-float NoiseGenerator::noise(float x, float y) const {
-    int X = static_cast<int>(std::floor(x)) & 255;
-    int Y = static_cast<int>(std::floor(y)) & 255;
-    
-    x -= std::floor(x);
-    y -= std::floor(y);
-    
-    float u = fade(x);
-    float v = fade(y);
-    
-    int A = p[X] + Y;
-    int B = p[X + 1] + Y;
-    
-    return lerp(v,
-               lerp(u,
-                    grad(p[A], x, y),
-                    grad(p[B], x - 1, y)),
-               lerp(u,
-                    grad(p[A + 1], x, y - 1),
-                    grad(p[B + 1], x - 1, y - 1)));
-}
-
-float NoiseGenerator::fbm(float x, float y, int octaves, float persistence) const {
-    float total = 0.0f;
-    float frequency = 1.0f;
-    float amplitude = 1.0f;
-    float maxValue = 0.0f;
-    
-    for (int i = 0; i < octaves; i++) {
-        total += noise(x * frequency, y * frequency) * amplitude;
-        maxValue += amplitude;
-        amplitude *= persistence;
-        frequency *= 2.0f;
-    }
-    
-    return total / maxValue;
+int NoiseGenerator::hash(int x, int y) const {
+    int hash = (seed * 1234567 + x * 2345678 + y * 3456789) & 255;
+    hash = ((hash << 13) ^ hash) * (hash * (hash * hash * 15731 + 789221) + 1376312589);
+    return hash & 255;
 } 

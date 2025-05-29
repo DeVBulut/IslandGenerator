@@ -1,6 +1,6 @@
-C:\Coding Projects\Procedural Island Generator\external\imgui\imgui.cpp;C:\Coding Projects\Procedural Island Generator\build\ImGui.dir\Debug\imgui.obj
-C:\Coding Projects\Procedural Island Generator\external\imgui\imgui_demo.cpp;C:\Coding Projects\Procedural Island Generator\build\ImGui.dir\Debug\imgui_demo.obj
-C:\Coding Projects\Procedural Island Generator\external\imgui\imgui_draw.cpp;C:\Coding Projects\Procedural Island Generator\build\ImGui.dir\Debug\imgui_draw.obj
-C:\Coding Projects\Procedural Island Generator\external\imgui\imgui_tables.cpp;C:\Coding Projects\Procedural Island Generator\build\ImGui.dir\Debug\imgui_tables.obj
-C:\Coding Projects\Procedural Island Generator\external\imgui\imgui_widgets.cpp;C:\Coding Projects\Procedural Island Generator\build\ImGui.dir\Debug\imgui_widgets.obj
-C:\Coding Projects\Procedural Island Generator\external\imgui\backends\imgui_impl_opengl3.cpp;C:\Coding Projects\Procedural Island Generator\build\ImGui.dir\Debug\imgui_impl_opengl3.obj
+C:\Coding Projects\Procedural Island Generator\IslandGenerator\external\imgui\imgui.cpp;C:\Coding Projects\Procedural Island Generator\IslandGenerator\build\ImGui.dir\Debug\imgui.obj
+C:\Coding Projects\Procedural Island Generator\IslandGenerator\external\imgui\imgui_demo.cpp;C:\Coding Projects\Procedural Island Generator\IslandGenerator\build\ImGui.dir\Debug\imgui_demo.obj
+C:\Coding Projects\Procedural Island Generator\IslandGenerator\external\imgui\imgui_draw.cpp;C:\Coding Projects\Procedural Island Generator\IslandGenerator\build\ImGui.dir\Debug\imgui_draw.obj
+C:\Coding Projects\Procedural Island Generator\IslandGenerator\external\imgui\imgui_tables.cpp;C:\Coding Projects\Procedural Island Generator\IslandGenerator\build\ImGui.dir\Debug\imgui_tables.obj
+C:\Coding Projects\Procedural Island Generator\IslandGenerator\external\imgui\imgui_widgets.cpp;C:\Coding Projects\Procedural Island Generator\IslandGenerator\build\ImGui.dir\Debug\imgui_widgets.obj
+C:\Coding Projects\Procedural Island Generator\IslandGenerator\external\imgui\backends\imgui_impl_opengl3.cpp;C:\Coding Projects\Procedural Island Generator\IslandGenerator\build\ImGui.dir\Debug\imgui_impl_opengl3.obj

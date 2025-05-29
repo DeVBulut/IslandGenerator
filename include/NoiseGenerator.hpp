@@ -1,32 +1,27 @@
 #pragma once
-#include <vector>
-#include <random>
 
 class NoiseGenerator {
 public:
-    NoiseGenerator(int seed = 1);
+    NoiseGenerator();
     
-    // Generate 2D Perlin noise
+    // Generate noise value at given coordinates
     float noise(float x, float y) const;
     
     // Generate Fractal Brownian Motion noise
     float fbm(float x, float y, int octaves, float persistence) const;
     
-    // Set new seed and regenerate permutation table
-    void setSeed(int seed);
+    // Set seed for noise generation
+    void setSeed(int newSeed);
     
     // Get current seed
-    int getSeed() const { return seed; }
+    int getSeed() const;
 
 private:
     int seed;
-    std::vector<int> p; // Permutation table
     
-    // Helper functions
+    // Helper functions for noise generation
     float fade(float t) const;
-    float lerp(float t, float a, float b) const;
+    float lerp(float a, float b, float t) const;
     float grad(int hash, float x, float y) const;
-    
-    // Initialize permutation table
-    void initPermutationTable();
+    int hash(int x, int y) const;
 }; 

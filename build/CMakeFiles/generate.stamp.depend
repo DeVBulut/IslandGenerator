@@ -1,9 +1,9 @@
 # CMake generation dependency list for this directory.
-C:/Coding Projects/Procedural Island Generator/CMakeLists.txt
-C:/Coding Projects/Procedural Island Generator/build/CMakeFiles/4.0.0-rc3/CMakeCCompiler.cmake
-C:/Coding Projects/Procedural Island Generator/build/CMakeFiles/4.0.0-rc3/CMakeCXXCompiler.cmake
-C:/Coding Projects/Procedural Island Generator/build/CMakeFiles/4.0.0-rc3/CMakeRCCompiler.cmake
-C:/Coding Projects/Procedural Island Generator/build/CMakeFiles/4.0.0-rc3/CMakeSystem.cmake
+C:/Coding Projects/Procedural Island Generator/IslandGenerator/CMakeLists.txt
+C:/Coding Projects/Procedural Island Generator/IslandGenerator/build/CMakeFiles/4.0.0-rc3/CMakeCCompiler.cmake
+C:/Coding Projects/Procedural Island Generator/IslandGenerator/build/CMakeFiles/4.0.0-rc3/CMakeCXXCompiler.cmake
+C:/Coding Projects/Procedural Island Generator/IslandGenerator/build/CMakeFiles/4.0.0-rc3/CMakeRCCompiler.cmake
+C:/Coding Projects/Procedural Island Generator/IslandGenerator/build/CMakeFiles/4.0.0-rc3/CMakeSystem.cmake
 C:/Libraries/SFML-2.5.1/lib/cmake/SFML/SFMLConfig.cmake
 C:/Libraries/SFML-2.5.1/lib/cmake/SFML/SFMLConfigDependencies.cmake
 C:/Libraries/SFML-2.5.1/lib/cmake/SFML/SFMLConfigVersion.cmake

@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "NoiseGenerator.hpp"
+#include <string>
 
 class TextureManager {
 public:
@@ -16,10 +17,10 @@ public:
     bool exportToPNG(const std::string& filename) const;
 
 private:
-    sf::RenderTexture renderTexture;
-    sf::Texture texture;
     int width;
     int height;
+    sf::RenderTexture renderTexture;
+    sf::Texture texture;
     
     // Convert noise value to grayscale color
     sf::Color noiseToColor(float value) const;

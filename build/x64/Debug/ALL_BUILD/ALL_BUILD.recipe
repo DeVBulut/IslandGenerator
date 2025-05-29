@@ -2,13 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Coding Projects\Procedural Island Generator\build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>C:\Coding Projects\Procedural Island Generator\IslandGenerator\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Coding Projects\Procedural Island Generator\build\Debug\ProceduralIslandGenerator.exe</FullPath>
+      <FullPath>C:\Coding Projects\Procedural Island Generator\IslandGenerator\build\Debug\ProceduralIslandGenerator.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Coding Projects\Procedural Island Generator\build\x64\Debug\ALL_BUILD</FullPath>
+      <FullPath>C:\Coding Projects\Procedural Island Generator\IslandGenerator\build\x64\Debug\ALL_BUILD</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
