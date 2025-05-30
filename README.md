@@ -1,88 +1,144 @@
 # Procedural Island Generator
 
-A C++ application that generates procedural islands using noise algorithms and allows real-time parameter adjustment. Built with SFML and Dear ImGui.
+A C++ application that generates beautiful procedural islands using Perlin noise and SFML graphics. Features include real-time parameter adjustment, multiple biomes, and PNG export capabilities.
+
+![Island Generator Screenshot](resources/screenshot.png)
 
 ## Features
 
-- **Real-time Island Generation**: Instantly see changes as you adjust parameters
-- **Interactive GUI**: User-friendly interface with adjustable windows
-- **Customizable Parameters**:
-  - Noise Parameters:
-    - Scale (1.0 - 10.0)
-    - Octaves (1 - 8)
-    - Persistence (0.1 - 1.0)
-    - Seed (any integer)
-  - Terrain Parameters:
-    - Sea Level (0.0 - 1.0)
-    - Beach Size (0.01 - 0.1)
-    - Mountain Level (0.5 - 0.9)
-    - Snow Level (0.7 - 1.0)
-- **Export Functionality**: Save your generated islands as PNG files
+- Real-time island generation using Perlin noise
+- Interactive parameter adjustment:
+  - Noise scale, octaves, and persistence
+  - Sea level and beach size
+  - Mountain and snow levels
+- Multiple biome visualization:
+  - Deep and shallow water
+  - Beaches
+  - Grasslands and forests
+  - Mountains and snow peaks
+- PNG export functionality
+- Modern ImGui-based user interface
+- Multi-island archipelago generation
 
-## Dependencies
+## Prerequisites
 
-- SFML 2.5.1
-- Dear ImGui
-- OpenGL
-- CMake (for building)
-- C++17 compatible compiler
+- Windows 10 or later
+- Visual Studio 2022 (or compatible C++ compiler)
+- CMake 3.15 or higher
+- SFML 2.5.1 or higher
+- NSIS (for creating the installer)
 
-## Building the Project
+## Building from Source
 
-1. Make sure you have all dependencies installed
-2. Clone the repository
-3. Create a build directory:
-```bash
-mkdir build
-cd build
-```
-4. Generate build files with CMake:
-```bash
-cmake ..
-```
-5. Build the project:
-```bash
-cmake --build .
-```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/procedural-island-generator.git
+   cd procedural-island-generator
+   ```
+
+2. **Configure with CMake:**
+   ```bash
+   mkdir build
+   cd build
+   cmake .. -G "Visual Studio 17 2022" -A x64
+   ```
+
+3. **Build the project:**
+   ```bash
+   cmake --build . --config Release
+   ```
+
+4. **Create the installer (optional):**
+   ```bash
+   cpack -C Release
+   ```
+
+## Installation
+
+### Option 1: Using the Installer
+
+1. Download the latest release installer (`ProceduralIslandGenerator-1.0.0-win64.exe`)
+2. Run the installer and follow the prompts
+3. Launch the application from the Start Menu or desktop shortcut
+
+### Option 2: Manual Installation
+
+1. Build from source following the steps above
+2. Copy the executable and required DLLs to your desired location
+3. Run `ProceduralIslandGenerator.exe`
 
 ## Usage
 
-1. Run the executable `ProceduralIslandGenerator.exe`
-2. The interface consists of two main windows:
-   - **Island Controls**: Adjust generation parameters
-   - **Island Map**: Displays the generated island (can be moved and resized)
+1. **Launch the application**
+   - The main window shows the generated island
+   - Control panel on the left contains all parameters
 
-### Adjusting Parameters
+2. **Adjust Generation Parameters:**
+   - **Noise Parameters:**
+     - Scale: Controls the overall size of features (1.0 - 10.0)
+     - Octaves: Affects detail level (1 - 8)
+     - Persistence: Controls feature prominence (0.1 - 1.0)
+     - Seed: Changes the random pattern (or click ↻ for random seed)
 
-- All parameters update the island in real-time
-- The island will automatically regenerate when any parameter is changed
-- Experiment with different combinations to create unique islands
+   - **Terrain Parameters:**
+     - Sea Level: Adjusts water coverage (0.0 - 1.0)
+     - Beach Size: Controls beach width (0.01 - 0.1)
+     - Mountain Level: Sets mountain height (0.5 - 0.9)
+     - Snow Level: Adjusts snow coverage (0.7 - 1.0)
 
-### Exporting Islands
+3. **Export Your Island:**
+   - Click "Select Directory..." to choose save location
+   - Click "Export Now" to save as PNG
+   - Files are named with seed and timestamp for reference
 
-1. Click "Select Directory..." to choose where to save your island
-2. Click "Export Now" to save the current island as a PNG file
-3. The filename will include the seed number and timestamp
+## Building the Installer
 
-## Controls
+To create a distributable installer:
 
-- **Left Mouse Button**: Drag windows
-- **Left Mouse Button + Window Edge**: Resize windows
-- **Mouse Wheel**: Adjust slider values
+1. Install NSIS from https://nsis.sourceforge.io/Download
+2. Add NSIS to your system PATH
+3. Follow the build steps above
+4. Run `cpack -C Release` in the build directory
+5. Find the installer in the build directory
 
-## Tips
+## Development
 
-- Higher octave values create more detailed terrain
-- Adjust the sea level to control how much of the island is visible
-- Beach size affects the transition between water and land
-- Mountain and snow levels control the elevation appearance
-- Use different seeds to generate completely different islands
-- The scale parameter affects the overall size of terrain features
+### Project Structure
+
+```
+IslandGenerator/
+├── include/
+│   ├── NoiseGenerator.hpp
+│   ├── IslandGenerator.hpp
+│   └── TextureManager.hpp
+├── src/
+│   ├── main.cpp
+│   ├── NoiseGenerator.cpp
+│   ├── IslandGenerator.cpp
+│   └── TextureManager.cpp
+├── tools/
+│   ├── icon_generator.cpp
+│   └── CMakeLists.txt
+├── resources/
+│   └── icon.ico
+├── CMakeLists.txt
+└── README.md
+```
 
 ## License
 
-This project is open source and available under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Contributing
 
-Feel free to submit issues, fork the repository, and create pull requests for any improvements. 
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Acknowledgments
+
+- SFML team for the graphics library
+- Dear ImGui for the user interface
+- Perlin noise implementation based on [reference] 
